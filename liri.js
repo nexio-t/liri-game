@@ -9,9 +9,27 @@ var axios = require("axios");
 var userCommand = process.argv[2];
 console.log(userCommand); 
 
-var userRequest = // everything of index three or later 
+var userFullRequest = process.argv; 
 
-console.log(userCommand)
+for (var i = 0; i < userFullRequest.length; i++) {
+    console.log(userFullRequest[i]); 
+};  // everything of index three or later 
+
+
+switch (userCommand) {
+
+    case "movie-this": /*movie();*/ console.log("movie registers"); break;  
+    
+    case "concert-this": /*concert();*/ console.log("concert registers");  break; 
+
+    case "spotify-this-song": /*spotify();*/ console.log("spotify registers"); break; 
+    
+    case "do-what-it-says": /*command();*/ console.log("command registers"); break; 
+
+}; 
+
+
+
 
     // switch statement 
 
