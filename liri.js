@@ -2,8 +2,10 @@ require("dotenv").config();
 var keys = require("./key.js");
 var fs = require("fs");
 var Spotify = require('node-spotify-api');
+var moment = require('moment');
 var spotify = new Spotify(keys.spotify);
 var axios = require("axios");
+
 
 // capture the command 
 var userCommand = process.argv[2];
@@ -20,7 +22,7 @@ switch (userCommand) {
     break;  
     
     case "concert-this": 
-    /*concert();*/
+    concert();
     console.log("concert registers");  
     break; 
 
@@ -92,23 +94,48 @@ function movie() {
 // Band function 
 function concert() {
 
-    var concertName = ""; 
+    var artistName = ""; 
 
     for(var i = 3; i < userFullRequest.length; i++) {
         
         if (i > 3 && i < userFullRequest.length) {
-            concertName += "+" + userFullRequest[i]; 
+            artistName += "+" + userFullRequest[i]; 
         } else {
-            concertName += userFullRequest[i]; 
+            artistName += userFullRequest[i]; 
         }
     } 
 
-    var queryUrl = "http://www.omdbapi.com/?t=" + concertName + "&y=&plot=short&apikey=trilogy"; 
+    var queryUrl = "https://rest.bandsintown.com/artists/" + artistName + "/events?app_id=codingbootcamp"; 
+
+    console.log(artistName); 
 
     axios.get(queryUrl)
+    .then(
+        function(response) {
+
+        for (var i = 0; i < 5; i++) {
+        // Name of venue, venue location, date of event 
+        console.log("-----------------------"); 
+        console.log("Venue name: " + response.data[i].venue.name); 
+        console.log("City: " + response.data[i].venue.city); 
+        
+        // Change date format
+        var originalDate = response.data[i].datetime
+        var shortDate = originalDate.substring(0, 10); 
+        var displayDate = moment(shortDate, "YYYY-MM-DD").format("MM/DD/YYYY");
+
+        console.log("Concert date: " + displayDate); 
+        console.log("-----------------------"); 
+        }
+
+  }).catch(function (error) {
+    // handle error
+    console.log(error);
+  }); 
 
 }
 
+// https://rest.bandsintown.com/artists/Beyonce/events?app_id=codingbootcamp
 
     // switch statement 
 
