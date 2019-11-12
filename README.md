@@ -1,4 +1,4 @@
-# LIRI
+# Liri
 
 Liri is a language interpretation and recognition interface that takes certain users commands as inputs and outputs results from those commands. 
 
@@ -19,7 +19,7 @@ npm install
 node liri.js
 ```
 
-## Running liri 
+## Running Liri 
 
 Liri takes in four commands: 
 - movie-this
@@ -29,15 +29,22 @@ Liri takes in four commands:
 
 The first three commands fetch results from the OMDB, Spotify, and Bands In Town APIs, respectively. Movie-this looks up movie data, like the release year, IMDB rating, actors, etc. Spotify-this-song looks up the song or artist on spotify and retrieves the artist(s), song name, album, and preview link to listen to the song. Concert-this retrieves the five latest concerts for an artist, including the venue name, location, and event date. The last command reads the text contained in line 1 of the random.txt file, which you are free to modify to any of the other commands. Please include a space after the comma. 
 
+## Demo of Liri
+
+![Liri-demo](./liri-demo.gif)
+
+View full demo [here] (https://drive.google.com/file/d/1dbI9DgJeZs4VrMy4rhxyFgCVH2aWcRiT/view). 
+
 An example movie-this command would be: 
 
 ```
 node liri.js movie-this Interstellar
 ```
 
+
 The results for that command will appear as follows: 
 
-![Image of Yaktocat](./liri-gif.gif)
+
 
 ![Image of interstellar results](./screenshot1.png)
 
