@@ -11,7 +11,7 @@ var axios = require("axios");
 var userCommand = process.argv[2];
 
 
-var userFullRequest = process.argv; 
+var userFullRequest = process.argv;
 
 
 switch (userCommand) {
@@ -162,17 +162,16 @@ function spotifySong() {
                 console.log(response); 
                 console.log("Artist: " + response.tracks.items[0].artists[0].name);
                 console.log("Song: " + response.tracks.items[0].name);
-                console.log("Album: " + response.tracks.items[0].album.name); // works
+                console.log("Album: " + response.tracks.items[0].album.name); 
                 console.log("Preview link: " + response.tracks.items[0].external_urls.spotify); 
             });
         } else {
             for (var i = 0; i < 5; i++) {
-                console.log("-----------------------");
-                //   console.log(response.tracks.items[0]);
+                  console.log("-----------------------");
                   console.log("Result No. " + (i + 1)); 
                   console.log("Artist: " + response.tracks.items[i].artists[0].name);
                   console.log("Song: " + response.tracks.items[i].name);
-                  console.log("Album: " + response.tracks.items[i].album.name); // works
+                  console.log("Album: " + response.tracks.items[i].album.name); 
                   console.log("Preview link: " + response.tracks.items[i].external_urls.spotify); 
                   console.log("-----------------------");
             };
@@ -191,27 +190,26 @@ function spotifySong() {
 
 function doWhatItSays() {
 
-fs.readFile("./random.txt", (err, data) => {
+fs.readFile("./random.txt", "utf8", (err, data) => {
 
     if (err) throw err; 
 
-    console.log(typeof(data)); 
-
     console.log("data is " + data); 
 
-    console.log("index 0 " + data[0]);
+    console.log(data.split(", ")); 
 
-    console.log("index 0 " + data[1]);
+    var userCommand = data.split(", ")[0]; 
 
-    var newData = JSON.stringify(data); 
+    console.log(userCommand); 
 
-    console.log(typeof(newData)); 
+    // var newData = data.split(" ").join(" "); 
+    // console.log(newData); 
 
-    var command = newData.split(",").toString(); 
+    // console.log(typeof(newData)); 
 
-    console.log(command); 
+    // var command = newData.split(",").toString(); 
 
-    switch (data) {
+    switch (userCommand) {
 
         case "movie-this": 
         movie(); 
