@@ -27,8 +27,7 @@ switch (userCommand) {
     break; 
 
     case "spotify-this-song": 
-    /*spotify();*/ 
-    console.log("spotify registers"); 
+    spotifySong();
     break; 
     
     case "do-what-it-says": 
@@ -132,6 +131,64 @@ function concert() {
     // handle error
     console.log(error);
   }); 
+
+}
+
+// Spotify function 
+
+function spotifySong() {
+
+    var spotifyQuery = ""; 
+
+    for(var i = 3; i < userFullRequest.length; i++) {
+        
+        if (i > 3 && i < userFullRequest.length) {
+            spotifyQuery += "+" + userFullRequest[i]; 
+        } else {
+            spotifyQuery += userFullRequest[i]; 
+        }
+    } 
+
+
+      spotify
+        .search({ type: 'track', query: spotifyQuery})
+        .then(function(response) {
+
+            // artist, song name, preview link, album 
+
+          console.log(response);
+
+          console.log("Length is: " + response.tracks.items.length);
+
+        if (response.tracks.items.length === 0) {
+            spotify
+            .search({ type: 'track', query: "The Sign Ace of Base"})
+            .then(function(response) {
+                console.log(response); 
+                console.log("Artist: " + response.tracks.items[0].artists[0].name);
+                console.log("Song: " + response.tracks.items[0].name);
+                console.log("Album: " + response.tracks.items[0].album.name); // works
+                console.log("Preview link: " + response.tracks.items[0].external_urls.spotify); 
+            });
+        } else {
+            for (var i = 0; i < 5; i++) {
+                console.log("-----------------------");
+                //   console.log(response.tracks.items[0]);
+                  console.log("Result No. " + (i + 1)); 
+                  console.log("Artist: " + response.tracks.items[i].artists[0].name);
+                  console.log("Song: " + response.tracks.items[i].name);
+                  console.log("Album: " + response.tracks.items[i].album.name); // works
+                  console.log("Preview link: " + response.tracks.items[i].external_urls.spotify); 
+                  console.log("-----------------------");
+            };
+
+        };
+
+      
+        })
+        .catch(function(err) {
+          console.log(err);
+        });
 
 }
 
