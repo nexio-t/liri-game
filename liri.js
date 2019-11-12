@@ -10,24 +10,33 @@ var axios = require("axios");
 // capture the command 
 var userCommand = process.argv[2];
 
-
 var userFullRequest = process.argv;
+
+var newRequest = ""; 
+
+for(var i = 3; i < userFullRequest.length; i++) {
+        
+    if (i > 3 && i < userFullRequest.length) {
+        newRequest += "+" + userFullRequest[i]; 
+    } else {
+        newRequest += userFullRequest[i]; 
+    }
+} 
 
 
 switch (userCommand) {
 
     case "movie-this": 
-    movie(); 
-
+    movie(newRequest); 
     break;  
     
     case "concert-this": 
-    concert();
+    concert(newRequest);
     console.log("concert registers");  
     break; 
 
     case "spotify-this-song": 
-    spotifySong();
+    spotifySong(newRequest);
     break; 
     
     case "do-what-it-says": 
@@ -55,18 +64,11 @@ function appendtoLog(message) {
 appendtoLog(userFullRequest); 
 
 // Movie function
-function movie() {
+function movie(userInput) {
 
     var movieName = ""; 
 
-    for(var i = 3; i < userFullRequest.length; i++) {
-        
-        if (i > 3 && i < userFullRequest.length) {
-            movieName += "+" + userFullRequest[i]; 
-        } else {
-            movieName += userFullRequest[i]; 
-        }
-    } 
+    movieName = userInput; 
 
     var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy"; 
 
@@ -91,18 +93,12 @@ function movie() {
 }
 
 // Band function 
-function concert() {
+function concert(userInput) {
 
     var artistName = ""; 
 
-    for(var i = 3; i < userFullRequest.length; i++) {
-        
-        if (i > 3 && i < userFullRequest.length) {
-            artistName += "+" + userFullRequest[i]; 
-        } else {
-            artistName += userFullRequest[i]; 
-        }
-    } 
+    artistName = userInput; 
+
 
     var queryUrl = "https://rest.bandsintown.com/artists/" + artistName + "/events?app_id=codingbootcamp"; 
 
@@ -136,22 +132,19 @@ function concert() {
 
 // Spotify function 
 
-function spotifySong() {
+function spotifySong(userInput) {
 
     var spotifyQuery = ""; 
 
-    for(var i = 3; i < userFullRequest.length; i++) {
-        
-        if (i > 3 && i < userFullRequest.length) {
-            spotifyQuery += "+" + userFullRequest[i]; 
-        } else {
-            spotifyQuery += userFullRequest[i]; 
-        }
-    } 
+    spotifyQuery = userInput; 
+
+    console.log("Line 152:" + userFullRequest); 
 
       spotify
         .search({ type: 'track', query: spotifyQuery})
         .then(function(response) {
+
+          console.log(response.tracks.items[0]); 
 
           console.log("Length is: " + response.tracks.items.length);
 
@@ -200,36 +193,34 @@ fs.readFile("./random.txt", "utf8", (err, data) => {
 
     var userCommand = data.split(", ")[0]; 
 
-    console.log(userCommand); 
+    var splitSearch = data.split(", "); 
 
-    // var newData = data.split(" ").join(" "); 
-    // console.log(newData); 
+    var userCommand = splitSearch[0]; 
 
-    // console.log(typeof(newData)); 
+    var userSong = splitSearch[1]; 
 
-    // var command = newData.split(",").toString(); 
+    console.log("line 202: " + userSong); 
+
+    userFullRequest = userSong; 
+
+    console.log("song request" + userFullRequest); 
 
     switch (userCommand) {
 
         case "movie-this": 
-        movie(); 
-    
+        movie(userSong); 
         break;  
         
         case "concert-this": 
-        concert();
+        concert(userSong);
         console.log("concert registers");  
         break; 
     
         case "spotify-this-song": 
         console.log("spotify called"); 
-        spotifySong();
+        spotifySong(userSong);
         break; 
         
-        case "do-what-it-says": 
-        doWhatItSays(); 
-        console.log("command registers"); 
-        break; 
     
     }; 
 
