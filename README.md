@@ -33,7 +33,7 @@ The first three commands fetch results from the OMDB, Spotify, and Bands In Town
 
 ![Liri-demo](./liri-demo.gif)
 
-View full demo [here] (https://drive.google.com/file/d/1dbI9DgJeZs4VrMy4rhxyFgCVH2aWcRiT/view). 
+View full demo [here](https://drive.google.com/file/d/1dbI9DgJeZs4VrMy4rhxyFgCVH2aWcRiT/view). 
 
 An example movie-this command would be: 
 
