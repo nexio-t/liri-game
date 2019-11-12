@@ -91,3 +91,7 @@
 /usr/local/bin/node,/Users/tomasgear/Desktop/code/Homeworks/liri-game/liri.js,do-what-it-says
 /usr/local/bin/node,/Users/tomasgear/Desktop/code/Homeworks/liri-game/liri.js,do-what-it-says
 /usr/local/bin/node,/Users/tomasgear/Desktop/code/Homeworks/liri-game/liri.js,do-what-it-says
+/usr/local/bin/node,/Users/tomasgear/Desktop/code/Homeworks/liri-game/liri.js,do-what-it-says
+/usr/local/bin/node,/Users/tomasgear/Desktop/code/Homeworks/liri-game/liri.js,do-what-it-says
+/usr/local/bin/node,/Users/tomasgear/Desktop/code/Homeworks/liri-game/liri.js,do-what-it-says
+/usr/local/bin/node,/Users/tomasgear/Desktop/code/Homeworks/liri-game/liri.js,do-what-it-says

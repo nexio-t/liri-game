@@ -207,9 +207,9 @@ fs.readFile("./random.txt", (err, data) => {
 
     console.log(typeof(newData)); 
 
-    var command = newData.split(","); 
+    var command = newData.split(",").toString(); 
 
-    // console.log(command); 
+    console.log(command); 
 
     switch (data) {
 
