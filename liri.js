@@ -31,7 +31,7 @@ switch (userCommand) {
     break; 
     
     case "do-what-it-says": 
-    /*command();*/ 
+    doWhatItSays(); 
     console.log("command registers"); 
     break; 
 
@@ -149,14 +149,9 @@ function spotifySong() {
         }
     } 
 
-
       spotify
         .search({ type: 'track', query: spotifyQuery})
         .then(function(response) {
-
-            // artist, song name, preview link, album 
-
-          console.log(response);
 
           console.log("Length is: " + response.tracks.items.length);
 
@@ -189,6 +184,58 @@ function spotifySong() {
         .catch(function(err) {
           console.log(err);
         });
+
+}
+
+// Do what it says function 
+
+function doWhatItSays() {
+
+fs.readFile("./random.txt", (err, data) => {
+
+    if (err) throw err; 
+
+    console.log(typeof(data)); 
+
+    console.log("data is " + data); 
+
+    console.log("index 0 " + data[0]);
+
+    console.log("index 0 " + data[1]);
+
+    var newData = JSON.stringify(data); 
+
+    console.log(typeof(newData)); 
+
+    var command = newData.split(","); 
+
+    // console.log(command); 
+
+    switch (data) {
+
+        case "movie-this": 
+        movie(); 
+    
+        break;  
+        
+        case "concert-this": 
+        concert();
+        console.log("concert registers");  
+        break; 
+    
+        case "spotify-this-song": 
+        console.log("spotify called"); 
+        spotifySong();
+        break; 
+        
+        case "do-what-it-says": 
+        doWhatItSays(); 
+        console.log("command registers"); 
+        break; 
+    
+    }; 
+
+}); 
 
 }
 
