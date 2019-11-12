@@ -37,7 +37,9 @@ node liri.js movie-this Interstellar
 
 The results for that command will appear as follows: 
 
-![Image of Yaktocat](./screenshot1.png)
+![Image of Yaktocat](./liri-gif.gif)
+
+![Image of interstellar results](./screenshot1.png)
 
 Again, may use the same query structure in the example to run commands for artists whose concerts you'd like to see (concert-this), songs or artists who songs you'd like more information on (spotify-this-song), and general information about a movie (movie-this). 
 
@@ -46,7 +48,7 @@ node liri.js do-what-it-says
 ```
 The default results for the above do-what-it-says command will appear as follows: 
 
-![Image of Yaktocat](./screenshot2.png)
+![Image of do-what-it-says results](./screenshot2.png)
 
 Again, "it" here is really a reference to the command within the line 1 of random.txt file. You may modify it to run other commands as you please. 
 

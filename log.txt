@@ -184,3 +184,12 @@
 /usr/local/bin/node,/Users/tomasgear/Desktop/code/Homeworks/liri-game/liri.js,do-what-it-says
 /usr/local/bin/node,/Users/tomasgear/Desktop/code/Homeworks/liri-game/liri.js,movie-this,Interstellar
 /usr/local/bin/node,/Users/tomasgear/Desktop/code/Homeworks/liri-game/liri.js,do-what-it-says
+/usr/local/bin/node,/Users/tomasgear/Desktop/code/Homeworks/liri-game/liri.js,movie-this,Interstellar
+/usr/local/bin/node,/Users/tomasgear/Desktop/code/Homeworks/liri-game/liri.js,concert-this,Sting
+/usr/local/bin/node,/Users/tomasgear/Desktop/code/Homeworks/liri-game/liri.js,spotify-this-song,Imagine,John,Lennon
+/usr/local/bin/node,/Users/tomasgear/Desktop/code/Homeworks/liri-game/liri.js,spotify-this-song,Hound,Dog
+/usr/local/bin/node,/Users/tomasgear/Desktop/code/Homeworks/liri-game/liri.js,do-what-it-says
+/usr/local/bin/node,/Users/tomasgear/Desktop/code/Homeworks/liri-game/liri.js,spotify-this-song,Hound,Dog
+/usr/local/bin/node,/Users/tomasgear/Desktop/code/Homeworks/liri-game/liri.js,concert-this,Sting
+/usr/local/bin/node,/Users/tomasgear/Desktop/code/Homeworks/liri-game/liri.js,movie-this,Interstellar
+/usr/local/bin/node,/Users/tomasgear/Desktop/code/Homeworks/liri-game/liri.js,do-what-it-says
