@@ -66,18 +66,21 @@ function movie(userInput) {
     .get(queryUrl)
     .then(function(response) {
       console.log("-----------------------");
-      console.log("Movie title: " + response.data.Title);
-      console.log("Year: " + response.data.Year);
-      console.log("IMDB rating: " + response.data.imdbRating);
-      console.log("Rotten tomatoes: " + response.data.Ratings[1].Value);
-      console.log("Country: " + response.data.Country);
-      console.log("Language: " + response.data.Language);
-      console.log("Plot: " + response.data.Plot);
-      console.log("Actors: " + response.data.Actors);
+
+      console.log("Movie title: " + (response.data.Title || "N/A"));
+      console.log("Year: " + (response.data.Year || "N/A"));
+      console.log("IMDB rating: " + (response.data.imdbRating || "N/A"));
+      console.log("Rotten tomatoes: " + (response.data.Ratings[1].Value || "N/A"));
+      console.log("Country: " + (response.data.Country || "N/A"));
+      console.log("Language: " + (response.data.Language || "N/A"));
+      console.log("Plot: " + (response.data.Plot || "N/A"));
+      console.log("Actors: " + (response.data.Actors || "N/A"));
+
       console.log("-----------------------");
     })
     .catch(function(error) {
       // handle error
+      console.log("Please enter in a real movie"); 
       console.log(error);
     });
 }
@@ -99,21 +102,22 @@ function concert(userInput) {
       for (var i = 0; i < 5; i++) {
         // Name of venue, venue location, date of event
         console.log("-----------------------");
-        console.log("Venue name: " + response.data[i].venue.name);
-        console.log("City: " + response.data[i].venue.city);
+        console.log("Venue name: " + (response.data[i].venue.name || "N/A"));
+        console.log("City: " + (response.data[i].venue.city || "N/A"));
 
         // Change date format
         var originalDate = response.data[i].datetime;
         var shortDate = originalDate.substring(0, 10);
         var displayDate = moment(shortDate, "YYYY-MM-DD").format("MM/DD/YYYY");
 
-        console.log("Concert date: " + displayDate);
+        console.log("Concert date: " + (displayDate || "N/A"));
         console.log("-----------------------");
       }
     })
     .catch(function(error) {
       // handle error
       console.log(error);
+      console.log("Please enter in a real movie"); 
     });
 }
 
@@ -133,25 +137,26 @@ function spotifySong(userInput) {
           .search({ type: "track", query: "The Sign Ace of Base" })
           .then(function(response) {
             console.log(response);
-            console.log("Artist: " + response.tracks.items[0].artists[0].name);
-            console.log("Song: " + response.tracks.items[0].name);
-            console.log("Album: " + response.tracks.items[0].album.name);
-            console.log("Preview link: " + response.tracks.items[0].external_urls.spotify);
+            console.log("Artist: " + (response.tracks.items[0].artists[0].name || "N/A"));
+            console.log("Song: " + (response.tracks.items[0].name || "N/A"));
+            console.log("Album: " + (response.tracks.items[0].album.name || "N/A"));
+            console.log("Preview link: " + (response.tracks.items[0].external_urls.spotify || "N/A"));
           });
       } else {
         for (var i = 0; i < 5; i++) {
           console.log("-----------------------");
           console.log("Result No. " + (i + 1));
-          console.log("Artist: " + response.tracks.items[i].artists[0].name);
-          console.log("Song: " + response.tracks.items[i].name);
-          console.log("Album: " + response.tracks.items[i].album.name);
-          console.log("Preview link: " + response.tracks.items[i].external_urls.spotify);
+          console.log("Artist: " + (response.tracks.items[i].artists[0].name || "N/A"));
+          console.log("Song: " + (response.tracks.items[i].name || "N/A"));
+          console.log("Album: " + (response.tracks.items[i].album.name || "N/A"));
+          console.log("Preview link: " + (response.tracks.items[i].external_urls.spotify || "N/A"));
           console.log("-----------------------");
         }
       }
     })
     .catch(function(err) {
       console.log(err);
+      console.log("Please enter in a real song or artist"); 
     });
 }
 
